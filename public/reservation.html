@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>reservation.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.css" />
+	<style>
+	body{
+		margin-top: 80px;
+	}
+	.dropdown-menu{
+		height: 150px;
+		overflow-y: scroll;
+	}
+	.priceInfo .row{
+		margin:0 !important;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="col-xs-8 col-xs-offset-2">
+			<form action="">
+				<div class="form-group">
+					<label for="checkIn1">예약날짜</label>
+					<input type="text" class="form-control" id="date" placeholder="yyyy/mm/dd">
+				</div>
+				<div class="form-group">
+					<label for="checkOut1">예약시간</label>
+					<input type="text" class="form-control" id="checkin" placeholder="체크인" />
+					<input type="text" class="form-control" id="checkout" placeholder="체크아웃" />
+				</div>
+				<div class="form-group dropdown">
+					<button type="button" class="btn btn-default btn-lg btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text-muted" id="member">사용인원</span><span class="caret"></span></button>
+	                <ul class="dropdown-menu member">
+		                <li><a class="dropdown-item" href="#">1명</a></li>
+		                <li><a class="dropdown-item" href="#">2명</a></li>
+		                <li><a class="dropdown-item" href="#">3명</a></li>
+		                <li><a class="dropdown-item" href="#">4명</a></li>
+		                <li><a class="dropdown-item" href="#">5명</a></li>
+		                <li><a class="dropdown-item" href="#">6명</a></li>
+		                <li><a class="dropdown-item" href="#">7명</a></li>
+		                <li><a class="dropdown-item" href="#">8명</a></li>
+		                <li><a class="dropdown-item" href="#">9명</a></li>
+		                <li><a class="dropdown-item" href="#">10명+</a></li>
+	                </ul>
+				</div>
+				<div class="priceInfo">
+					<div class="row">
+						<span class="text-muted pull-left">공간 이용 금액</span>
+						<span class="pull-right">330,000원</span>
+					</div>
+					<div class="row">
+						<span class="text-muted pull-left">인원/시간 추가 금액</span>
+						<span class="pull-right">0원</span>
+					</div>
+					<div class="row">
+						<span class="text-muted pull-left">결제 예정 금액</span>
+						<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+					</div>
+					<a class="btn btn-success btn-block" href="index.html">예약하기</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="/js/jquery-3.2.1.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/moment-with-locales.min.js"></script>
+	<script src="/js/bootstrap-datetimepicker.js"></script>
+	<script>
+		//언어 설정
+		var checkdate = function(id){
+			$(id).datetimepicker({
+				locale:"ko",
+				format:"YYYY/MM/DD"
+			});
+		};
+
+		var checktime = function(id){
+			$(id).datetimepicker({
+				format:"LT"
+			});
+		};
+
+		//플러그인 동작 시키기
+		checkdate("#date");
+		checktime("#checkin");
+		checktime("#checkout");
+
+		//검색 사용인원 dropdown 선택하기
+        $(".member li a").click(function(){
+          var str = $(this).text();
+          $("#member").text(str)
+          .parent()
+          .children(".caret")
+          .hide()
+          .parent()
+          .css("aria-expanded","false");
+        });
+
+	</script>
+</body>
+</html>

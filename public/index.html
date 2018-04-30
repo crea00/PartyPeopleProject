@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PARTY PEOPLE</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/fotorama.css" />
+    <!-- bootstrap datetimepicker 플러그인 -->
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.css" rel="stylesheet" />
+    <style>
+      /*css/creative.css로*/
+    </style>
+  </head>
+
+  <body id="page-top" ng-controller="roomCtrl">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="neon js-scroll-trigger" href="#page-top">PARTY PEOPLE</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span id="navi-icon" class="fa fa-bars" aria-hidden="true"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="menu-neon nav-link js-scroll-trigger" href="#about">About us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="menu-neon nav-link dropdown-toggle" data-toggle="dropdown">Reservation</a>
+              <div class="dropdown-menu reservation_menu">
+                  <a class="dropdown-item nav-link js-scroll-trigger" href="#reservation">Search</a>
+                  <a class="dropdown-item nav-link js-scroll-trigger" href="#confirm">Confirm</a>
+              </div>
+            <li class="nav-item">
+              <a class="menu-neon nav-link js-scroll-trigger" href="#partyroom">Party room</a>
+            </li>
+            <li class="nav-item">
+              <a class="menu-neon nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <!-- 여기수정 -->
+              <a class="menu-neon nav-link js-scroll-trigger" href="#" data-toggle="modal" data-target="#join" id="joinmenu"><small>Join</small></a>
+            </li>
+            <li class="nav-item">
+              <a class="menu-neon nav-link js-scroll-trigger" href="#" data-toggle="modal" data-target="#login"><small>Log in</small></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Navigation End-->
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="filterBox"></div>
+        <video autoplay loop id="video-background" muted plays-inline>
+          <source src="video/main-layer.mp4" type="video/mp4">
+        </video>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Searching your own party room!</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">당신만의 파티룸을 찾아보세요!</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!--로그인 페이지 login.html-->
+    <div ng-include="'login.html'"></div>
+    <!-- 여기수정 회원가입 페이지 join.html -->
+    <div ng-include="'join.html'"></div>
+    <!-- 비회원 예약 확인 정보 confirm.html -->
+    <div ng-include="'confirm.html'"></div>
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">잊지못할 추억을 경험하세요!</h2>
+            <hr class="light my-4">
+            <div class="text-center">
+              <img class="circle" src ="img/aboutus_1.jpeg">
+              <img class="circle" src ="img/aboutus_2.jpg">
+              <img class="circle" src ="img/aboutus_3.jpeg">
+            </div>
+            <p class="text-faded my-4 mb-4">Amitie는 언제나 당신의 일상에 반짝이는 추억을 선사할 준비가 되어있습니다!<br>영화관, 클럽, 스튜디오, 홈파티 등 사랑하는 사람들과 근사한 파티를 경험해보세요!<br>여러가지 테마가 있는 파티룸, 최고의 파티를 도와줄 파티 플래너, 파티를 진행할 멋진 엔터테이너가<br>여러분을 기다리고 있습니다.</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger nanumSR_EB" href="#services">시작하세요!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center text-white">
+            <h2 class="section-heading">런칭 프로모션</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center text-white">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-film text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">영화 티켓</h3>
+              <p class="text-muted mb-0">파티룸 이용시 영화 티켓 증정!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center text-white">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-bus text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">리무진 서비스</h3>
+              <p class="text-muted mb-0">특별한 당신을 위한 리무진 픽업 서비스!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center text-white">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-glass text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">무료 칵테일</h3>
+              <p class="text-muted mb-0">1회 이상 이용시 유명 호텔 바 이용권 증정!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center text-white">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-bath text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">스파 이용권</h3>
+              <p class="text-muted mb-0">5성급 호텔 스파 이용권 증정!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-dark" id="reservation">
+      <div class="container text-center">
+        <fieldset class="form-group">
+          <div class="row">
+            <div class="col-lg-4">
+              <input type="text" class="form-control form-control-lg dropdown-toggle" data-toggle="dropdown" placeholder="파티장소" aria-haspopup="true" aria-expanded="false" id="partyplace">
+              <ul class="dropdown-menu place">
+                <li><a class="dropdown-item" href="#">아이앰퍼샌드</a></li>
+                <li><a class="dropdown-item" href="#">우나앤쿠</a></li>
+                <li><a class="dropdown-item" href="#">다다룸</a></li>
+                <li><a class="dropdown-item" href="#">언더그라운드</a></li>
+                <li><a class="dropdown-item" href="#">레이디 스튜디오</a></li>
+                <li><a class="dropdown-item" href="#">쉐어원 라운지</a></li>
+                <li><a class="dropdown-item" href="#">나나하우스</a></li>
+                <li><a class="dropdown-item" href="#">블랑 BLANC</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-3">
+              <div class="input-group date" id="date">
+                <input type="text" class="form-control form-control-lg" placeholder="예약일">
+                <span class="input-group-addon">
+                  <span class="fa fa-calendar-o"></span>
+                </span>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-3">
+              <div class="input-group date" id="dateTime">
+                <input type="text" class="form-control form-control-lg" placeholder="예약시간" />
+                <span class="input-group-addon">
+                  <span class="fa fa-clock-o"></span>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4 col-lg-2">
+              <button type="button" class="btn btn-default btn-lg btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text-muted" id="member">사용인원</span><span class="caret"></span></button>
+              <ul class="dropdown-menu member">
+                <li><a class="dropdown-item" href="#">1명</a></li>
+                <li><a class="dropdown-item" href="#">2명</a></li>
+                <li><a class="dropdown-item" href="#">3명</a></li>
+                <li><a class="dropdown-item" href="#">4명</a></li>
+                <li><a class="dropdown-item" href="#">5명</a></li>
+                <li><a class="dropdown-item" href="#">6명</a></li>
+                <li><a class="dropdown-item" href="#">7명</a></li>
+                <li><a class="dropdown-item" href="#">8명</a></li>
+                <li><a class="dropdown-item" href="#">9명</a></li>
+                <li><a class="dropdown-item" href="#">10명+</a></li>
+              </ul>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-6 col-sm-3 col-lg-3 searchBtn">
+                <button class="btn btn-primary btn-lg btn-block">검색</button>
+              </div>
+            </div>
+        </fieldset>
+        <div class="row roomListWrap clearfixHs" style="margin-top:60px">
+          <div class="roomList" ng-repeat="tmp in rooms">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+               <img class="img-responsive" ng-src="{{tmp.src}}"/>
+              </div>
+              <div class="panel-body">
+                <h3>{{tmp.title}}</h3>
+                <p>{{tmp.price}}원/시간</p>
+              </div>
+              <div class="panel-footer">
+                <a class="btn btn-primary btn_detail btn-lg" href="#" ng-click="goDetail($index)">자세히 보기</a>
+              </div>
+            </div>
+          </div><!-- //repeat col -->
+        </div><!-- //row -->
+      </div><!--container-->
+    </section>
+
+    <section class="p-0" id="partyroom">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters">
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/iam1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    아이앰퍼샌드
+                  </div>
+                  <div class="project-name">
+                    홍대 주변에서 이곳만한 곳 없는것 같음ㅎㅎ
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/koo1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    구 스튜디오
+                  </div>
+                  <div class="project-name">
+                    친구들이랑 파티하시려 여기 추천드려요!!!
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/ladystudio1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    레이디 스튜디오
+                  </div>
+                  <div class="project-name">
+                    주차가 안되서 조금 불편했지만 나름 만족해요.
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/nanahouse1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    나나룸
+                  </div>
+                  <div class="project-name">
+                    생긴지 얼마 안되서 깨끗하고 사장님도 친절하셨습니다. 또 방문하고 싶어요^^
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/rillstudio1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    릴 스튜디오
+                  </div>
+                  <div class="project-name">
+                    진짜진짜 강추!
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box">
+              <img class="img-fluid img-size-fix" src="img/underground1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    언더그라운드
+                  </div>
+                  <div class="project-name">
+                    완죤 져음... 그냥 말이 필요없음...
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- confirm section -->
+    <section id="confirm">
+      <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center text-white">
+          <h3 class="section-heading">비회원 예약내역 조회</h3>
+          <hr class="my-4">
+          <p class="text-muted mb-5">예약 시 입력한 이름과 휴대전화 번호를 입력 해 주세요.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 mx-auto text-center text-white">
+          <form ng-submit="send($event)" action="reserveAction" name="myForm" method="post">
+            <div class="form-group">
+              <input type="text" id="name" name="name" class="form-control" ng-required="true" ng-model="formData.name" placeholder="이름" /> <!-- ng-required 는 반드시 입력해야 하는 것을 의미한다. -->
+            </div>
+            <div class="form-group">
+              <input type="text" id="phone" name="phone" class="form-control" ng-required="true" ng-model="formData.phone" placeholder="휴대전화 번호" />
+            </div>
+
+            <button ng-disabled="myForm.$invalid" type="submit" class="btn btn-primary">조회하기</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center text-white">
+            <h2 class="section-heading">파티피플 고객센터</h2>
+            <hr class="my-4">
+            <p class="mb-5">특별한 하루를 보낼 수 있는 파티룸을 발견하고 예약할 수 있는 여러분의 마켓플레이스<br/>월-금 9AM-6PM<br/> 연중무휴</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center text-white">
+            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+            <p>070-456-6789</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center text-white">
+            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+            <p>
+              <a href="mailto:your-email@your-domain.com">amitie@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <p class="footerInner">
+          ⓒ 2017 PARTY PEOPLE.
+        </p>
+
+      </div>
+    </footer>
+    <!-- modal -->
+    <div class="modal fade reservationModal" id="reservationBox">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h4 class="modal-title text-center">{{obj.title}}</h4>
+            <button type="button" class="close" data-dismiss="modal" ng-click="isShow=false">
+              <span>&times;</span>
+              <span class="sr-only">모달 닫기</span>
+            </button>
+
+          </div>
+          <div class="modal-body">
+            <div class="col-sm-6" id="reserveInfo">
+              <div class="fotorama" data-autoplay="true" ng-if="isShow" >
+                <span ng-repeat="tmp2 in obj.imgList" class="frame">
+                   <img ng-src="{{tmp2}}" class="img-responsive" />
+                   <span ng-if="$last" ng-init="repeatEnded()"></span>
+                </span>
+              </div>
+              <div>
+                <h3>설명</h3>
+                <p>{{obj.content}}</p>
+
+                <h3>편의시설</h3>
+                <p>{{obj.con}}</p>
+
+                <h3>요금</h3>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>청소 비용</td>
+                      <td>KRW {{obj.clean}}(일/박 당)</td>
+                    </tr>
+                    <tr>
+                      <td>최대 인원</td>
+                      <td>{{obj.add}}</td>
+                    </tr>
+                    <tr>
+                      <td>예약 취소</td>
+                      <td>{{obj.cancel}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3>숙소 규정</h3>
+                <p>{{obj.rule}}</p>
+
+                <h3>기타 정보</h3>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>체크인</td>
+                      <td>{{obj.checkIn}}</td>
+                    </tr>
+                    <tr>
+                      <td>체크아웃</td>
+                      <td>{{obj.checkOut}}</td>
+                    </tr>
+                    <tr>
+                      <td>사이즈</td>
+                      <td>{{obj.size}}</td>
+                    </tr>
+                    <tr>
+                      <td>최소 숙박 기간</td>
+                      <td>{{obj.min}}</td>
+                    </tr>
+                    <tr>
+                      <td>최대 숙박 기간</td>
+                      <td>{{obj.max}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="reserveBtn">
+                <a type="button" class="btn btn-danger btn-block" href="reservation.html">예약하기</a>
+              </div>
+            </div>
+            <div class="col-sm-6 fixedRight" id="fixed" style="padding-right: 30px;">
+              <form action="">
+                <div class="form-group">
+                  <label for="checkIn1">예약날짜</label>
+                  <input type="text" class="form-control" id="date1" placeholder="yyyy/mm/dd">
+                </div>
+                <div class="form-group">
+                  <label for="checkOut1">예약시간</label>
+                  <div class="dropdown">
+                    <input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" placeholder="체크인" id="checkin" />
+                  </div>
+                  <div class="dropdown">
+                    <input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" placeholder="체크아웃" id="checkout" />
+                  </div>
+                </div>
+                <div class="form-group dropdown">
+                  <label for="number">사용인원</label>
+                  <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown"><span class="text-muted" id="member1">인원수</span><span class="caret"></span></button>
+                  <ul class="dropdown-menu modal1 w100">
+                    <li><a href="#">1명</a></li>
+                    <li><a href="#">2명</a></li>
+                    <li><a href="#">3명</a></li>
+                    <li><a href="#">4명</a></li>
+                    <li><a href="#">5명</a></li>
+                    <li><a href="#">6명</a></li>
+                    <li><a href="#">7명</a></li>
+                    <li><a href="#">8명</a></li>
+                    <li><a href="#">9명</a></li>
+                    <li><a href="#">10명+</a></li>
+                  </ul>
+                </div>
+                <div class="priceInfo">
+                  <div class="row">
+                    <div class="col-12">
+                      <span class="text-muted pull-left">공간 이용 금액</span>
+                      <span class="pull-right">330,000원</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <span class="text-muted pull-left">인원/시간 추가 금액</span>
+                      <span class="pull-right">0원</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <span class="text-muted pull-left">결제 예정 금액</span>
+                      <span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+                </div>
+              </form>
+            </div>
+          </div><!-- //modal-body -->
+        </div><!-- //modal-content-->
+      </div><!--//modal-dialog -->
+    </div>
+<!-- //modal -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="js/moment-with-locales.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/fotorama.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.js"></script>
+
+    <script>
+      var myApp=angular.module("myApp",[]);
+
+      myApp.controller("roomCtrl",function($scope,$http,$location){
+        $scope.obj={};
+
+        $scope.goDetail=function(index){
+          //index는 클릭한 버튼의 인덱스가 들어있다.
+
+          //1. modal 을 띄운다.
+          $("#reservationBox").modal("show");
+          $scope.isShow=true;
+          //2. modal 에서 사용하는 모델을 업데이트 한다.
+          $scope.obj=$scope.rooms[index];
+        };
+
+        $scope.repeatEnded=function(){
+          //fotorama 초기화
+          $(".fotorama").fotorama();
+        };
+
+        $http({
+          method:"get",
+          url:"/teamP/rooms"
+        }).success(function(data){
+          $scope.rooms=data;
+        });
+
+        //formData 라는 모델 만들기
+        $scope.formData = {};
+        $scope.info;
+        //폼 전송 이벤트가 발생했을 때 호출 되는 함수
+        $scope.send=function($event){
+          //기본 동작을 막아서 폼 전송이 안되도록 한다.
+          $event.preventDefault();
+          //post 방식 ajax 요청 하기
+          $http({
+            method:"post",
+            url:"/angular/confirm",
+            data:$scope.formData
+          }).success(function(data){
+            $scope.info = data;
+
+            if(data.phone != null){
+              $("#confirm-modal1").modal("show");
+            }
+            else{
+              $("#confirm-modal2").modal("show");
+            }
+
+          });
+        };
+
+      });
+
+      myApp.directive('valueMatches', ['$parse', function ($parse) {
+      return {
+        require: 'ngModel',
+          link: function (scope, elm, attrs, ngModel) {
+            var originalModel = $parse(attrs.valueMatches),
+                secondModel = $parse(attrs.ngModel);
+            // Watch for changes to this input
+            scope.$watch(attrs.ngModel, function (newValue) {
+              ngModel.$setValidity(attrs.name, newValue === originalModel(scope));
+            });
+            // Watch for changes to the value-matches model's value
+            scope.$watch(attrs.valueMatches, function (newValue) {
+              ngModel.$setValidity(attrs.name, newValue === secondModel(scope));
+            });
+          }
+        };
+      }]);
+
+        //윈도우 창 너비 변수 선언
+        var windowWidth;
+
+        //웹페이지 시작시 모달 너비를 조정한다.
+        $(document).ready(function(){
+          reservationCheck();
+          windowWidth=$(window).width();
+          console.log(windowWidth);
+        });
+
+        var checkdate = function(id){
+          $(id).datetimepicker({
+            locale: "ko",
+            format:"YYYY/MM/DD"
+          });
+        };
+        var checktime = function(id){
+          $(id).datetimepicker({
+            format:"LT"
+          });
+        };
+
+        var modality = function(id){
+          $(id).modal({
+            backdrop:true,
+            show:false
+          });
+        };
+
+        var reservationCheck = function(){
+          windowWidth = $(window).width();
+          if(windowWidth <= 864){
+            $("#reserveBtn").show();
+            $("#fixed").css("display", "none");
+            $("#reserveInfo")
+            .removeClass("col-sm-6")
+            .css("width","100%");
+          }else if(windowWidth >= 864&& windowWidth <= 991){
+            $("#reserveInfo")
+            .removeClass("col-sm-6")
+            .css("width","100%");
+            $("#reserveBtn").css("display", "block");
+            $("#fixed").css("display", "none");
+          }else{
+            $("#reserveBtn").css("display", "none");
+            $("#fixed").css("display","block");
+            $("#reserveInfo")
+            .addClass("col-sm-6");
+          }
+        };
+
+        //날짜 및 시간 datetimepicker 적용
+        checkdate("#date");
+        checkdate("#date1");
+
+        checktime("#dateTime");
+        checktime("#checkin");
+        checktime("#checkout");
+
+        //reservation 검색 파티장소 dropdown 선택 하기
+        $(".place li a").click(function(){
+          var str = $(this).text();
+          $("#partyplace").val(str);
+        });
+
+        //reservation 검색 사용인원 dropdown 선택하기
+        $(".member li a").click(function(){
+          var str = $(this).text();
+          $("#member").text(str)
+          .parent()
+          .css("expanded","false");
+        });
+
+        //modal 에 있는 사용인원 dropdown 선택하기
+        $(".modal1 li a").click(function(){
+          var str = $(this).text();
+          $("#member1").text(str)
+          .parent()
+          .children(".caret")
+          .hide()
+          .parent()
+          .css("air-expanded","false");
+        });
+
+        //modal 을 끌 때, 사용인원 초기화 하기
+        $(".close").click(function(){
+          $("#member1").text("인원수")
+          .parent()
+          .children(".caret")
+          .show();
+        });
+
+        modality("#myModal");
+        $("#myBtn").click(function(){
+          //모달 보이게 하기
+          $("#myModal").modal("show");
+        });
+
+        $("#login").modal({
+        backdrop: "static",
+        show: false
+        });
+        $(".login").click(function(){
+          $("#login").modal("show");
+        });
+
+        $(".circle").on("mouseover",function(){
+          $(this).addClass('animated pulse').on("animationend",function(){
+            $(this).removeClass('animated pulse');
+          });
+        });
+
+        //윈도우 크기를 줄일 때, 모달 배치 변형!
+        $(window).resize(function(){
+          reservationCheck();
+        });
+
+        // join페이지 스크립트, 패스워드 매칭부분은 상단에 있음
+        $("#selectEmailAdd").click(function(){
+      			var add=$(this).val();
+      			$("#inputEmailAdd").val(add);
+      	});
+
+        //join 모달이 열릴 때, datepicker 작동하기, 모달 옵션 전달
+        $("#joinmenu").click(function(){
+          checkdate("#join-birthday");
+
+          // 모달에 옵션 전달하기
+          $("#join-modal1").modal({
+            backdrop: true,
+            show: false
+          });
+          $("#join-modal2").modal({
+            backdrop: true,
+            show: false
+          });
+          $("#join-modal3").modal({
+            backdrop: true,
+            show: false
+          });
+
+          // 버튼을 눌렀을때 모달 보이게 하기
+          $("#modalBtn1").click(function(){
+            $("#join-modal1").modal("show");
+            return false; //폼 제출 막기
+          });
+          $("#modalBtn2").click(function(){
+            $("#join-modal2").modal("show");
+            return false; //폼 제출 막기
+          });
+          $("#modalBtn3").click(function(){
+            $("#join-modal3").modal("show");
+            return false; //폼 제출 막기
+          });
+
+          // 전체동의
+          $("#allAgree").on("click", function(){
+            //$("input[type='checkbox']").prop("checked","checked");
+
+            var ischecked=$("#allAgree").prop("checked");
+            if(ischecked){
+              $("input[type='checkbox']").prop("checked","checked");
+            }else{
+              $("input[type='checkbox']").prop("checked","");
+            }
+          });
+        });
+
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,67 @@
+<div class="modal fade" id="confirm-modal1">
+	<!-- modal-lg  | default | modal-sm -->	
+	 <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title orange">예약 정보</h3>
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+	      </div>
+	      <div class="modal-body">
+	         	<table class="table table-striped">
+				       <tr>
+				        	<td>이름</td>
+				        	<td>{{info.name}}</td>
+				        </tr>
+				        <tr>
+				        	<td>연락처</td>
+				        	<td>{{info.phone}}</td>
+				        </tr>
+				        <tr>
+				        	<td>예약날짜</td>
+				        	<td>{{info.date}}</td>
+				        </tr>
+				        <tr>
+				        	<td>체크인</td>
+				        	<td>{{info.checkin}}</td>
+				        </tr>
+				        <tr>
+				        	<td>체크아웃</td>
+				        	<td>{{info.checkout}}</td>
+				        </tr>
+				        <tr>
+				        	<td>파티장소</td>
+				        	<td>{{info.spot}}</td>
+				        </tr>
+				        <tr>
+				        	<td>방번호</td>
+				        	<td>{{info.room}}</td>
+				        </tr>
+			    </table>		
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="confirm-modal2">
+		<!-- modal-lg  | default | modal-sm -->	
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="container">
+	      		<div class="row">
+	      			<p>{{info.name}}</p>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		h1{
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+		#facebook{
+			color: #375595;
+		}
+		#kakao{
+			color: #FFD424;
+		}
+		#naver{
+			color: #2DB400;
+		}
+		.btn{
+			border: 1px solid #000;
+		}
+
+	</style>
+</head>
+
+<body>
+<h1>Amitié Login Page</h1>
+
+<form class="form-horizontal">
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-4">
+			<input type="text" class="form-control" id="inputId" placeholder="아이디 입력" style="height: 44px; margin-bottom: 15px;">
+			<input type="password" class="form-control" id="inputPwd" placeholder="비밀번호 입력" style="height: 44px; margin-bottom: 15px;">
+			<button class="form-control btn btn-primary" style="height: 44px; margin-bottom: 15px;">로그인</button>
+			<div class="row" style="margin-bottom: 15px;">
+				<div class="col-xs-4 col-xs-offset-2">
+					<label>
+						<input type="checkbox"/> 로그인 상태 유지
+					</label>
+				</div>
+				<div class="col-xs-4 col-xs-offset-1">
+					<label>
+						<input type="checkbox"/> 아이디 저장
+					</label>
+				</div>
+			</div>
+			<button type="submit" class="btn form-control" style="height: 44px; margin-bottom: 15px;"><span id="facebook"><strong>Facebook</strong></span>으로 로그인</button>
+			<button type="submit" class="btn form-control" style="height: 44px; margin-bottom: 15px;"><span id="kakao"><strong>kakao</strong></span>로 로그인</button>
+			<button type="submit" class="btn form-control" style="height: 44px; margin-bottom: 15px;"><span id="naver"><strong>Naver</strong></span>로 로그인</button>
+			<div class="col-xs-10 col-xs-offset-1" style="text-align: center;">
+				<a href="#">아이디 찾기</a>
+				<span>&nbsp; |&nbsp; </span>
+				<a href="#">비밀번호 찾기</a>
+				<span>&nbsp; |&nbsp; </span>
+				<a href="#">회원가입</a>
+			</div>
+		
+		</div>
+	</div>
+</form>
+
+
+	
+</body>
+</html>

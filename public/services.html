@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>services.html</title>
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" href="css/fotorama.css" />
+<style>
+	/* 패널 반응형 */
+	.col{
+		float: left;
+		width: 100%;
+	}
+	@media(min-width: 768px){
+		.container{
+			width: 750px;
+		}
+		.col{
+			width: 50%;
+		}
+	}
+	@media(min-width: 992px){
+		.container{
+			width: 980px
+		}
+		.col{
+			width: 25%;
+		}
+	}
+	.panel-heading{
+		padding: 0;
+	}
+	.panel-boy h3{
+		margin-top: 10px;
+	}
+	.modal{
+		height: 600px;
+	}
+	.modal-body{
+		overflow-y: scroll;
+	}
+	.panel-heading img{
+		height: 200px;
+		width: 100%;
+	}
+	.dropdown-menu{
+		height: 150px;
+		overflow-y: scroll;
+	}
+	.modal{
+		position: fixed;
+		top: 100px;
+	}
+	.fixedRight{
+		position: fixed;
+		top: 100px;
+		left: 50%;
+	}
+	.priceInfo .row{
+		margin:0 !important;
+	}
+</style>
+<script src="js/angular.min.js"></script>
+<script>
+	var myApp = angular.module("myApp", []);
+	myApp.controller("ctrl1", function($scope){
+
+	});
+</script>
+</head>
+<body>
+	<div class="container">
+		<!-- 검색 창 -->
+		<div class="row">
+			<div class="col-lg-4">
+				<input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" placeholder="파티장소">
+				<ul class="dropdown-menu">
+					<li><a href="#">아이앰퍼샌드</a></li>
+					<li><a href="#">우나앤쿠</a></li>
+					<li><a href="#">다다룸</a></li>
+					<li><a href="#">언더그라운드</a></li>
+					<li><a href="#">레이디 스튜디오</a></li>
+					<li><a href="#">쉐어원 라운지</a></li>
+					<li><a href="#">나나하우스</a></li>
+					<li><a href="#">블랑 BLANC</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-lg-2">
+				<div class="input-group date" id="date">
+					<input type="text" class="form-control" placeholder="예약일">
+					<span class="input-group-addon btn btn-info">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-lg-2">
+				<div class="input-group date" id="dateTime">
+					<input type="text" class="form-control" placeholder="예약시간" />
+					<span class="input-group-addon btn btn-warning">
+						<span class="glyphicon glyphicon-time"></span>
+					</span>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-lg-2">
+				<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">10+</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-lg-2">
+				<button class="btn btn-primary btn-block">검색</button>
+			</div>
+		</div>
+		<div style="height: 10px"></div>
+		
+		<!-- 패널 -->
+		<div class="row">
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/iam1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>아이앰퍼샌드</h3>
+						<p>66,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/koo1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>우나앤쿠</h3>
+						<p>88,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn2">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/dadaroom1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>다다룸</h3>
+						<p>25,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn3">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/underground1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>언더그라운드</h3>
+						<p>40,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn4">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/ladystudio1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>레이디 스튜디오</h3>
+						<p>16,500원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn5">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/shareone1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>쉐어원 라운지</h3>
+						<p>55,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn6">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/nanahouse1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>나나하우스</h3>
+						<p>10,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn7">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img class="img-responsive" src="img/blanc1.jpg"/>
+					</div>
+					<div class="panel-body">
+						<h3>블랑 BLANC</h3>
+						<p>70,000원/시간</p>
+					</div>
+					<div class="panel-footer">
+						<a class="btn btn-warning" href="#" id="myBtn8">자세히 보기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 모달 -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">아이앰퍼샌드</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/iam1.jpg" class="img=responsive" />
+			        		<img src="img/iam2.jpg" class="img=responsive" />
+			        		<img src="img/iam3.jpg" class="img=responsive" />
+			        		<img src="img/iam4.jpg" class="img=responsive" />
+			        		<img src="img/iam5.jpg" class="img=responsive" />
+			        		<img src="img/iam6.jpg" class="img=responsive" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        	</div>
+			        	<div class="visible-xs-inline" id="reserveBtn">
+			        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date1" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin1" placeholder="체크인" />
+				        		</div>
+								<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout1" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+			        			<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal2">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">우나앤쿠</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/koo1.jpg" />
+							<img src="img/koo2.jpg" />
+							<img src="img/koo3.jpg" />
+							<img src="img/koo4.jpg" />
+							<img src="img/koo5.jpg" />
+							<img src="img/koo6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        		<div class="visible-xs-inline">
+				        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date2" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin2" placeholder="체크인" />
+				        		</div>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout2" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+							</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal3">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">다다룸</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/dadaroom1.jpg" />
+							<img src="img/dadaroom2.jpg" />
+							<img src="img/dadaroom3.jpg" />
+							<img src="img/dadaroom4.jpg" />
+							<img src="img/dadaroom5.jpg" />
+							<img src="img/dadaroom6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        		<div class="visible-xs-inline">
+				        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date3" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin3" placeholder="체크인" />
+				        		</div>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control dropdown-toggle" id="checkout3" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal4">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">언더그라운드</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/underground1.jpg" />
+							<img src="img/underground2.jpg" />
+							<img src="img/underground3.jpg" />
+							<img src="img/underground4.jpg" />
+							<img src="img/underground5.jpg" />
+							<img src="img/underground6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        		<div class="visible-xs-inline">
+				        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date4" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin4" placeholder="체크인" />
+				        		</div>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout4" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal5">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">레이디 스튜디오</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/ladystudio1.jpg" />
+							<img src="img/ladystudio2.jpg" />
+							<img src="img/ladystudio3.jpg" />
+							<img src="img/ladystudio4.jpg" />
+							<img src="img/ladystudio5.jpg" />
+							<img src="img/ladystudio6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        	</div>
+			        	<div class="visible-xs-inline" id="reserveBtn">
+			        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date5" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin5" placeholder="체크인" />
+				        		</div>
+								<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout5" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal6">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">쉐어원 라운지</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/shareone1.jpg" />
+							<img src="img/shareone2.jpg" />
+							<img src="img/shareone3.jpg" />
+							<img src="img/shareone4.png" />
+							<img src="img/shareone5.jpg" />
+							<img src="img/shareone6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        	</div>
+			        	<div class="visible-xs-inline" id="reserveBtn">
+			        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date6" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin6" placeholder="체크인" />
+				        		</div>
+								<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout6" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal7">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">나나하우스</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/nanahouse1.jpg" />
+							<img src="img/nanahouse2.jpg" />
+							<img src="img/nanahouse3.jpg" />
+							<img src="img/nanahouse4.jpg" />
+							<img src="img/nanahouse5.jpg" />
+							<img src="img/nanahouse6.png" />
+						</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        	</div>
+			        	<div class="visible-xs-inline" id="reserveBtn">
+			        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date7" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin7" placeholder="체크인" />
+				        		</div>
+								<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout7" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal8">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+					<h4 class="modal-title text-center">블랑 BLANC</h4>
+				</div>
+				<div class="modal-body">
+			        <div class="col-sm-6">
+			        	<div class="fotorama" data-width="100%" data-fit="cover" data-autoplay="true">
+			        		<img src="img/blanc1.jpg" />
+							<img src="img/blanc2.jpg" />
+							<img src="img/blanc3.jpg" />
+							<img src="img/blanc4.jpg" />
+							<img src="img/blanc5.jpg" />
+							<img src="img/blanc6.jpg" />
+			        	</div>
+			        	<div>
+			        		<h3>설명</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quam est necessitatibus sequi quisquam, ad deserunt. Dignissimos perspiciatis deserunt ea perferendis, tempore debitis autem quas, officiis aspernatur, numquam asperiores. Modi.</p>
+
+			        		<h3>편의시설</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed nam repudiandae amet facere? Voluptatum ut, distinctio placeat similique nostrum, omnis odit impedit dignissimos, architecto obcaecati amet? Modi, dolores, culpa.</p>
+
+			        		<h3>요금</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>청소 비용</td>
+			        					<td>KRW 996(일/박 당)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>추가 인원</td>
+			        					<td>KRW 24,883 (1명의 투숙객 이후)</td>
+			        				</tr>
+			        				<tr>
+			        					<td>예약 취소</td>
+			        					<td>도착 1일 전까지 취소료 제외하고 전액 환불, 도착 1일 이내에 위약금 발생</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>숙소 규정</h3>
+			        		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae, amet quos dignissimos nemo eius, modi eaque alias consequatur officiis enim exercitationem nihil dolores optio corrupti sequi ipsum. Repellat, architecto.</p>
+
+			        		<h3>기타 정보</h3>
+			        		<table class="table table-striped">
+			        			<tbody>
+			        				<tr>
+			        					<td>체크인</td>
+			        					<td>오후 6:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>체크아웃</td>
+			        					<td>오후 12:00</td>
+			        				</tr>
+			        				<tr>
+			        					<td>사이즈</td>
+			        					<td>129피트</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최소 숙박 기간</td>
+			        					<td>2박</td>
+			        				</tr>
+			        				<tr>
+			        					<td>최대 숙박 기간</td>
+			        					<td>8박</td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+
+			        		<h3>리뷰 (26)</h3>
+			        	</div>
+			        	<div class="visible-xs-inline" id="reserveBtn">
+			        		<a type="button" class="btn btn-danger btn-block" href="C:\ncs09\sublime_work\front project/reservation.html">예약하기</a>
+			        	</div>
+			        </div>
+			        <div class="col-xs-6 hidden-xs fixedRight" id="fixed" style="padding-right: 30px;">
+			        	<form action="">
+			        		<div class="form-group">
+			        			<label for="checkIn1">예약날짜</label>
+			        			<input type="text" class="form-control" id="date8" placeholder="yyyy/mm/dd">
+			        		</div>
+			        		<div class="form-group">
+			        			<label for="checkOut1">예약시간</label>
+			        			<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkin8" placeholder="체크인" />
+				        		</div>
+								<div class="dropdown">
+				        			<input type="text" class="form-control" id="checkout8" placeholder="체크아웃" />
+				        		</div>
+			        		</div>
+			        		<div class="form-group dropdown">
+			        			<label for="number">사용인원</label>
+			        			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">사용인원<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#">10+</a></li>
+								</ul>
+			        		</div>
+							<div class="priceInfo">
+								<div class="row">
+									<span class="text-muted pull-left">공간 이용 금액</span>
+									<span class="pull-right">330,000원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">인원/시간 추가 금액</span>
+									<span class="pull-right">0원</span>
+								</div>
+								<div class="row">
+									<span class="text-muted pull-left">결제 예정 금액</span>
+									<span class="pull-right" style="font-size: 20px"><strong>330,000원</strong></span>
+								</div>
+								
+				        		<button type="button" class="btn btn-success btn-block" data-dismiss="modal">예약하기</button>
+			        		</div>
+			        	</form>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/moment-with-locales.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.js"></script>
+	<script src="js/fotorama.js"></script>
+	<script src="js/imgLiquid.js"></script>
+</body>
+	<script>
+		//날짜, 시간 함수
+		var checkdate = function(id){
+			$(id).datetimepicker({
+				locale:"ko",
+				format:"YYYY/MM/DD"
+			});
+		};
+
+		var checktime = function(id){
+			$(id).datetimepicker({
+				format:"LT"
+			});
+		};
+
+		var modality = function(id){
+			$(id).modal({
+				backdrop:true,
+				show:false
+			});
+		};
+
+		//플러그인 동작 시키기
+		checkdate("#date");
+		checkdate("#date1");
+		checkdate("#date2");
+		checkdate("#date3");
+		checkdate("#date4");
+		checkdate("#date5");
+		checkdate("#date6");
+		checkdate("#date7");
+		checkdate("#date8");
+
+		//시간 목록 만들기
+		checktime("#dateTime");
+		checktime("#checkin1");
+		checktime("#checkin2");
+		checktime("#checkin3");
+		checktime("#checkin4");
+		checktime("#checkin5");
+		checktime("#checkin6");
+		checktime("#checkin7");
+		checktime("#checkin8");
+
+		checktime("#checkout1");
+		checktime("#checkout2");
+		checktime("#checkout3");
+		checktime("#checkout4");
+		checktime("#checkout5");
+		checktime("#checkout6");
+		checktime("#checkout7");
+		checktime("#checkout8");
+
+		//모달에 옵션 전달하기
+		modality("#myModal");
+		modality("#myModal2");
+		modality("#myModal3");
+		modality("#myModal4");
+		modality("#myModal5");
+		modality("#myModal6");
+		modality("#myModal7");
+		modality("#myModal8");
+
+		//자세히 보기 버튼을 눌렀을 때
+		$("#myBtn").click(function(){
+			//모달 보이게 하기
+			$("#myModal").modal("show");
+		});
+
+		$("#myBtn2").click(function(){
+			$("#myModal2").modal("show");
+		});
+		$("#myBtn3").click(function(){
+			$("#myModal3").modal("show");
+		});
+		$("#myBtn4").click(function(){
+			$("#myModal4").modal("show");
+		});
+		$("#myBtn5").click(function(){
+			$("#myModal5").modal("show");
+		});
+		$("#myBtn6").click(function(){
+			$("#myModal6").modal("show");
+		});
+		$("#myBtn7").click(function(){
+			$("#myModal7").modal("show");
+		});
+		$("#myBtn8").click(function(){
+			$("#myModal8").modal("show");
+		});
+
+		//오른쪽 예약하는 부분 고정
+      $(".modal").scroll(function(){
+         var top=$(this).scrollTop();
+         var isOrig= "100px"== $(".fixedRight").css("top");
+         $(".fixedRight").css("top",top+100+"px");
+         // if(top<=100){
+         //    $("#fixed").css("top","100px");
+         // }
+      });
+
+	</script>
+</body>
+</html>

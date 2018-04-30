@@ -1,0 +1,256 @@
+<div class="modal fade" id="join" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content login-bg">
+      <div class="modal-header login-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span class="gray" aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title orange">PARTY PEOPLE</h3><br>
+        <p class="mb-4">Join us for best party</p>
+      </div>
+      <div class="modal-body">
+        <h2 style="text-align: center;">필수 항목</h2>
+        <form action="signup" class="form-horizontal" name="signupForm" novalidate>
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <!-- 아이디입력 -->
+              <div class="form-group has-feedback clean_blank" ng-class="{'has-success' : signupForm.inputId.$valid, 'has-error' : signupForm.inputId.$invalid && signupForm.inputId.$dirty}"
+                >
+                <input type="text" class="form-control login-input" id="inputId" placeholder="아이디를 입력해주세요." name="inputId" ng-required="true" ng-model="inputId" ng-pattern="/^[a-z]+$/"/>
+                <span class="form-text text-muted" ng-show="signupForm.inputId.$error.required && signupForm.inputId.$dirty">반드시 입력하세요.</span>
+                <span class="form-text text-muted" ng-show="signupForm.inputId.$error.pattern && signupForm.inputId.$dirty">영소문자만 입력하세요.</span>
+                <span class="form-control-feedback fa fa-check" ng-show="signupForm.inputId.$valid"></span>
+                <span class="form-control-feedback fa fa-times" ng-show="signupForm.inputId.$invalid && signupForm.inputId.$dirty"></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <!-- 비밀번호입력 -->
+              <div class="form-group has-feedback"
+                ng-class="{'has-success': signupForm.inputPwd.$valid, 'has-error' : signupForm.inputPwd.$invalid && signupForm.inputPwd.$dirty}">
+
+                <input type="text" class="form-control login-input" id="inputPwd" name="inputPwd"
+                  ng-required="true" ng-model="inputPwd" placeholder="비밀번호를 입력해 주세요."
+                  ng-pattern="/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9])/"
+                  ng-minlength="6" ng-maxlength="20">
+                <span class="form-control-feedback fa fa-check" ng-show="signupForm.inputPwd.$valid"></span>
+                <span class="form-control-feedback fa fa-times" ng-show="signupForm.inputPwd.$invalid && signupForm.inputPwd.$dirty"></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <!-- 비밀번호 확인-->
+              <div class="form-group has-feedback"
+                ng-class="{'has-success' : signupForm.confirmPwd.$valid, 'has-error' : signupForm.confirmPwd.$invalid && signupForm.confirmPwd.$dirty}">
+
+                <input type="text" class="form-control login-input" id="confirmPwd" name="confirmPwd"
+                  ng-required="true" ng-model="confirmPwd.confirm"
+                  ng-pattern="/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9])/"
+                  ng-minlength="6" ng-maxlength="20"
+                  value-matches="inputPwd"
+                  required placeholder="비밀번호를 다시 한번 입력해 주세요.">
+
+                <span class="form-text text-muted" ng-hide="!signupForm.inputPwd.$error.required && !signupForm.inputPwd.$error.pattern && !signupForm.inputPwd.$error.minlength && !signupForm.inputPwd.$error.maxlength"><small>대,소문자포함, 6~20글자, 특수문자 포함</small></span>
+                <span class="form-text text-muted"
+                  ng-show="signupForm.confirmPwd.$dirty && signupForm.confirmPwd.$invalid">비밀번호를 확인해 주세요.</span>
+                <span class="form-text text-muted" ng-show="signupForm.inputPwd.$error.required && signupForm.inputPwd.$dirty">반드시 입력하세요.</span>
+                <span class="form-text text-muted" ng-show="signupForm.inputPwd.$error.minlength && signupForm.inputPwd.$dirty">6글자 이상 입력하세요.</span>
+                <span class="form-text text-muted" ng-show="signupForm.inputPwd.$error.maxlength && signupForm.inputPwd.$dirty">20글자 이하로 입력하세요.</span>
+                <span class="form-text text-muted" ng-show="signupForm.inputPwd.$error.pattern && signupForm.inputPwd.$dirty">특수문자를 포함해 주세요</span>
+                <span class="form-control-feedback fa fa-check" ng-show="signupForm.confirmPwd.$valid"></span>
+                <span class="form-control-feedback fa fa-times" ng-show="signupForm.confirmPwd.$invalid && signupForm.confirmPwd.$dirty"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <div class="form-group">
+                <input type="name" class="form-control login-input" id="inputName" placeholder="이름을 입력해주세요.">
+              </div>
+            </div>
+          </div>
+        <!--이메일-->
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-4">
+                    <input type="email" class="form-control login-input" id="inputEmail">
+                  </div>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">@</span>
+                      <input type="email" class="form-control login-input" id="inputEmailAdd">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <select name="emailAdd" id="selectEmailAdd" class="form-control">
+                      <option value="" selected>:: 주소선택 ::</option>
+                      <option value="naver.com">naver.com(네이버)</option>
+                      <option value="gmail.com">gmail.com(구글)</option>
+                      <option value="daum.net">daum.net(다음)</option>
+                      <option value="hotmail.com">hotmail.com(MS)</option>
+                      <option value="">:: 직접입력 ::</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!--이메일 끝-->
+          <!-- 핸드폰번호 -->
+          <div class="form-row">
+            <div class="col-8 offset-2">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-3">
+                    <fieldset>
+                      <select name="amount" class="form-control login-input" id="amount">
+                        <option value="1" selected="selected">SKT</option>
+                        <option value="2">KT</option>
+                        <option value="3">LG</option>
+                        <option value="4">기타</option>
+                     </select>
+                    </fieldset>
+                  </div>
+                  <div class="col-9">
+                    <div class="has-feedback"
+                    ng-class="{'has-success' : signupForm.phoneNumber.$valid, 'has-error' : signupForm.phoneNumber.$invalid && signupForm.phoneNumber.$dirty}">
+                      <input type="text" class="form-control login-input" name="phoneNumber" id="phoneNumber"
+                      ng-pattern= "/^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/"
+                      ng-required="true" ng-model="phoneNumber" placeholder="휴대폰번호(-제외)">
+                      <span class="form-text margin-b-5" ng-show="signupForm.phoneNumber.$error.pattern && signupForm.phoneNumber.$dirty">형식에 맞지 않습니다.</span>
+                      <span class="form-control-feedback fa fa-check" ng-show="signupForm.phoneNumber.$valid"></span>
+                      <span class="form-control-feedback fa fa-times" ng-show="signupForm.phoneNumber.$invalid && signupForm.phoneNumber.$dirty"></span>
+                    </div>
+                  </div>
+                </div>
+              </div><!--form-group-->
+            </div>
+          </div><!-- 핸드폰번호끝 -->
+          <div class="form-row">
+            <div class="offset-2">
+              <label>
+                <input type="checkbox" id="isAgree1" ng-model="isAgree1"> &nbsp;이용약관 동의 &nbsp;
+              </label>
+              <button id="modalBtn1" class="btn btn-info btn-sm" data-target="#join-modal1">내용보기</button><br/>
+              <label>
+                <input type="checkbox" id="isAgree2" ng-model="isAgree2"> &nbsp;개인정보 수집 및 이용 동의 &nbsp;
+              </label>
+              <button id="modalBtn2" class="btn btn-info btn-sm" data-target="#join-modal2">내용보기</button>
+            </div>
+          </div><!-- 필수항목 끝 -->
+          <h2 class="my-3" style="text-align: center;">선택항목</h2>
+          <div class="form-row">
+              <div class="col-8 offset-2">
+                <div class="form-row">
+                  <div class="col-3">
+                     <label for="element" class="col-form-label">생년월일</label>
+                  </div>
+                  <div class="col-5">
+                    <input type="text" class="form-control" name="birthday" id="join-birthday" placeholder="년/월/일">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-8 offset-2">
+                <div class="form-row">
+                  <div class="col-3">
+                    <label>성별</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" value="man" name="gender" type="radio">남자
+                      </label>
+                      <label class="form-check-label">
+                        <input class="form-check-input" value="woman" name="gender" type="radio">여자
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-8 offset-2">
+                <label>
+                  <input type="checkbox" id="isAgree3" ng-model="isAgree3"/>생년월일과 성별 수집 및 이용동의
+                </label>
+                <label>
+                  <input type="checkbox" id="isAgree4" ng-model="isAgree4"/>이메일 마케팅 수신 동의
+                </label>
+                <label>
+                  <input type="checkbox" id="isAgree5" ng-model="isAgree5">개인정보 유효기간 3년 지정 (미동의 시 1년) &nbsp;
+                </label>
+                <button id="modalBtn3" class="btn btn-info btn-sm" data-target="#join-modal3">내용보기</button>
+              </div>
+            </div>
+            <h4 class="my-4" style="text-align: center"><input type="checkbox" id="allAgree"/><strong>&nbsp;전체동의</strong></h4>
+            <div class="form-row">
+              <div class="col-4 offset-4">
+                <button class="btn btn-info form-control">회원가입</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- modal1, 2, 3 -->
+<div class="modal fade" id="join-modal1">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+        <h4 class="modal-title">이용약관</h4>
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+			</div>
+			<div class="modal-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est culpa voluptate impedit cumque! Perferendis incidunt impedit possimus vero natus, ipsam commodi quo a deleniti expedita architecto, debitis facilis! Vitae, animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio, repudiandae nesciunt. Facere iusto, sit ad saepe voluptas, voluptatibus numquam explicabo veniam necessitatibus, soluta laborum, harum officiis repellat nulla temporibus!</p>
+			</div>
+			<div class="modal-footer">
+				<label>
+					<input type="checkbox" data-dismiss="modal" ng-click="isAgree1=true">동의합니다.
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="join-modal2">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">개인정보 수집 및 이용 동의</h4>
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+			</div>
+			<div class="modal-body">
+				<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est culpa voluptate impedit cumque! Perferendis incidunt impedit possimus vero natus, ipsam commodi quo a deleniti expedita architecto, debitis facilis! Vitae, animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus aliquid, veniam accusamus illum vitae perspiciatis culpa dolores officiis ducimus ullam cumque corporis, sit amet minus cum numquam quod temporibus ipsa.</p>
+			</div>
+			<div class="modal-footer">
+				<label>
+					<input type="checkbox" data-dismiss="modal" ng-click="isAgree2=true">동의합니다.
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="join-modal3">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">개인정보 유효기간 3년 지정</h4>
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+			</div>
+			<div class="modal-body">
+				<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est culpa voluptate impedit cumque! Perferendis incidunt impedit possimus vero natus, ipsam commodi quo a deleniti expedita architecto, debitis facilis! Vitae, animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorum harum excepturi, repellat, enim ullam necessitatibus porro quam itaque rerum doloribus alias commodi, quo incidunt beatae fugit aspernatur consequuntur eligendi.</p>
+			</div>
+			<div class="modal-footer">
+				<label>
+					<input type="checkbox" data-dismiss="modal" ng-click="isAgree5=true">동의합니다.
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
